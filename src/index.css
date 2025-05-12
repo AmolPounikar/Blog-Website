@@ -1,0 +1,85 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 232 23% 16%;
+    --foreground: 210 40% 98%;
+
+    --card: 232 23% 20%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 232 23% 16%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 250 95% 76%;
+    --primary-foreground: 232 23% 16%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 261 43% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 18% 24%;
+    --input: 217 18% 24%;
+    --ring: 250 95% 76%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .fade-in {
+    @apply opacity-0 transition-opacity duration-500 ease-in-out;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  .slide-up {
+    @apply translate-y-4 opacity-0 transition-all duration-500 ease-out;
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  .hover-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
